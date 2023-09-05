@@ -18,9 +18,15 @@ class OnlyGuestMiddleware
     {
         if($request->session()->exists("user")){
             return redirect("/");
+<<<<<<< HEAD
         } else {
             return $next($request);
         }
         return $next($request);
+=======
+        }else {
+            return $next($request);
+        }
+>>>>>>> bb861dcdee2fdeb13c2377f2f1e517f1d9c8f7de
     }
 }

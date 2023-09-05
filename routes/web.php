@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
 
+=======
+Route::get('/', [HomeController::class, 'home']);
+>>>>>>> bb861dcdee2fdeb13c2377f2f1e517f1d9c8f7de
 Route::view('/template', 'template');
 
 Route::controller(UserController::class)->group(function(){
