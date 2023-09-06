@@ -2,12 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\TodolistService;
 use Illuminate\Http\Request;
 
 class TodolistController extends Controller
 {
-    public function todoList(Request $request){
 
+    private TodolistService $todolistService;
+
+    public function __construct(TodolistService $todolistService)
+    {
+        $this->todolistService = $todolistService;
+    }
+
+    public function todoList(Request $request)
+    {
+        $todolistService = $this->todolistService->getTodolist(); 
+        return response()->view('todolist.todolist',[
+            "title" => "Todolist",
+            "todolist" => $todolistService
+        ]);   
     }
 
     public function addTodo(Request $request){
